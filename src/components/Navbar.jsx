@@ -1,13 +1,25 @@
-import React from "react";
+
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../Firebase/FirebaseProvider";
 
 const Navbar = () => {
+const {user,LogOut}=useContext(AuthContext)
+console.log(user,);
+
+const handleLogOut = ()=>{
+  LogOut()
+}
   const navlist = (
     <>
       <li><Link to={'/'} className="text-white hover:text-gray-300">Home</Link></li>
       <li><Link to={'/alltourism'} className="text-white hover:text-gray-300">AllTourists Spot</Link></li>
       <li><Link to={'/addtourism'} className="text-white hover:text-gray-300">AddTourists Spot</Link></li>
       <li><Link to={'/mylist'} className="text-white hover:text-gray-300">MyList</Link></li>
+      <div className=" flex gap-2 md:hidden ">
+          <Link to={'/login'} className="btn border-t-slate-600   text-black ">Login</Link>
+          <Link to={'/register'} className="btn border-t-slate-600   text-black ">Register</Link>
+          </div>
     </>
   );
 
@@ -29,7 +41,13 @@ const Navbar = () => {
               {navlist}
             </ul>
           </div>
-          <a href="#" className="btn btn-ghost text-white">Login</a>
+          <div className=" md:flex gap-2 hidden text-white ">
+          {
+            user?<div><h2>{user.email}</h2><button onClick={handleLogOut}>logout</button></div>:<div className=" flex gap-2"> <Link to={'/login'} className="btn border-t-slate-600   text-black ">Login</Link>
+            <Link to={'/register'} className="btn border-t-slate-600   text-black ">Register</Link></div>
+          }
+         
+          </div>
         </div>
       </div>
     </div>
