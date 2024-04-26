@@ -81,7 +81,6 @@ const FirebaseProvider = ({ children }) => {
     LogOut,
     loading,
     googleSignIn,
-    updateprofile,
     githubSignIn
   };
   return (

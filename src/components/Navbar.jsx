@@ -43,7 +43,7 @@ const handleLogOut = ()=>{
           </div>
           <div className=" md:flex gap-2 hidden text-white ">
           {
-            user?<div><h2>{user.email}</h2><button onClick={handleLogOut}>logout</button></div>:<div className=" flex gap-2"> <Link to={'/login'} className="btn border-t-slate-600   text-black ">Login</Link>
+            user?<div><div className=" rounded-full h-10 w-10"><img src={user.photoURL} alt="" /></div><button onClick={handleLogOut}>logout</button></div>:<div className=" flex gap-2"> <Link to={'/login'} className="btn border-t-slate-600   text-black ">Login</Link>
             <Link to={'/register'} className="btn border-t-slate-600   text-black ">Register</Link></div>
           }
          

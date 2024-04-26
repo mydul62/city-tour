@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { FaGithub } from "react-icons/fa";
 import { FaGoogle } from "react-icons/fa6";
 import { Link } from "react-router-dom";
@@ -8,6 +8,7 @@ import { updateProfile } from "firebase/auth"; // Make sure to import updateProf
 
 const Registere = () => {
   const { signUpPass, setUser } = useContext(AuthContext);
+  const [passError,setPassError]=useState('')
 
   const handleSignUpPass = (e) => {
     e.preventDefault();
@@ -16,15 +17,21 @@ const Registere = () => {
     const email = form.email.value;
     const password = form.password.value;
     const photoURL = form.photoURL.value;
-
+    const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
+    
+    if(!passwordPattern.test(password)){
+      setPassError('You must put one uppercase,lowecase and ,im 6 digit')
+    return;
+    }
     signUpPass(email, password)
+    setPassError('')
       .then(result => {
         // Update user profile
         updateProfile(auth.currentUser, {
           displayName: name,
           photoURL: photoURL
-        }).then(() => {
-          setUser(auth.currentUser);
+        }).then((result) => {
+          setUser(result.user);
         }).catch(error => {
           console.log("Error updating profile:", error);
         });
@@ -56,12 +63,15 @@ const Registere = () => {
             name="email"
             className="border border-[#bbb] shadow-inner px-3 py-2  outline-none rounded-sm  w-full "
           />
-          <input
+         <div>
+         <input
             type="password"
             placeholder="Password"
             name="password"
             className="border border-[#ccc] px-3 py-2 outline-none shadow-inner  rounded-sm  w-full "
           />
+          <p>{passError&& passError}</p>
+         </div>
           <input
             type="text"
             name="photoURL"
