@@ -12,7 +12,7 @@ const ViewDetails = () => {
       <div className=" col-span-1 row-span-1">
       <img className=" w-full object-fill rounded-xl" src={loadedData?.photoURL2} alt="" />
       </div>
-      <div className=" col-span-1 row-span-1">
+      <div className=" col-span-1 row-span-1 ">
       <img className=" w-full object-fill  rounded-xl" src={loadedData?.photoURL3} alt="" />
       </div>
       <div className=" col-span-1 row-span-1">
