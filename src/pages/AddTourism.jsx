@@ -1,5 +1,6 @@
 import { useContext} from "react";
 import { AuthContext } from "../Firebase/FirebaseProvider";
+import Navbar from "../components/Navbar/Navbar";
 
 const AddTourism = () => {
   const { user } = useContext(AuthContext);
@@ -62,12 +63,17 @@ const AddTourism = () => {
   };
 
   return (
-    <div className=" max-w-7xl mx-auto my-24 flex items-center">
-      <div className="space-y-6 w-2/3 mx-auto bg-slate-300  rounded-xl ">
+  <>
+   <div className="">
+   <img className=" w-full h-[600px]" src="https://images.pexels.com/photos/258154/pexels-photo-258154.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" />
+   </div>
+ 
+    <div className=" max-w-7xl mx-auto -mt-80 flex items-center">
+      <div className="space-y-6 w-full md:w-2/3 mx-auto bg-slate-300  rounded-xl ">
         <div className=" bg-green-600 h-10 rounded-b-lg"></div>
         <div className="p-8 pt-0 ">
           <div className=" py-12">
-            <h2 className=" text-center font-Roboto text-3xl ">
+            <h2 className=" text-center text-[#010101] font-Roboto text-3xl ">
               Add Tourist Sport
             </h2>
           </div>
@@ -176,6 +182,7 @@ const AddTourism = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

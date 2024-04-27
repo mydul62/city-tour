@@ -41,7 +41,7 @@ const Banner = () => {
             src="https://images.pexels.com/photos/18330747/pexels-photo-18330747/free-photo-of-party-on-a-boat-moored-to-the-riverbank.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
             alt=""
           />
-          <div className=" max-w-7xl mx-auto absolute inset-0 flex justify-center items-center ">
+          <div className=" max-w-7xl w-[90%] mx-auto absolute inset-0 flex justify-center items-center ">
            <div>
            <h2 className=" text-5xl text-white font-Roboto font-bold">
               Going Inside <br />
@@ -59,7 +59,7 @@ const Banner = () => {
             src="https://images.pexels.com/photos/3007325/pexels-photo-3007325.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
             alt=""
           />
-           <div className=" max-w-7xl mx-auto absolute inset-0 flex justify-start items-center ">
+           <div className=" max-w-7xl w-[90%] mx-auto absolute inset-0 flex justify-start items-center ">
            <div className=" text-left">
            <h2 className=" text-5xl text-white font-Roboto font-bold">
               Going Inside <br />
@@ -77,7 +77,7 @@ const Banner = () => {
             src="https://images.pexels.com/photos/2425694/pexels-photo-2425694.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
             alt=""
           />
-           <div className=" max-w-7xl mx-auto absolute inset-0 flex justify-end items-center ">
+           <div className=" max-w-7xl w-[90%] mx-auto absolute inset-0 flex justify-end items-center ">
            <div className=" text-right">
            <h2 className=" text-5xl text-white font-Roboto font-bold">
               Going Inside <br />

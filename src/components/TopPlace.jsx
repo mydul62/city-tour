@@ -1,24 +1,17 @@
 import { FaLocationDot } from "react-icons/fa6";
 import { IoMdTime } from "react-icons/io";
-import { Link, useLoaderData } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-const AllTourism = () => {
-const datas = useLoaderData();
+const TopPlace = ({datas}) => {
   return (
-   <>
-   <div className="">
-   <img className=" w-full h-[500px]" src="https://images.pexels.com/photos/258154/pexels-photo-258154.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" />
-   </div>
-    <div className=" max-w-7xl mx-auto ">
-     <div className=" py-16">
-     <h2 className=" text-center text-3xl">Explore Our All Tourist Point</h2>
-     </div>
-     <div>
-     
-     </div>
-     <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+    <div className=" max-w-7xl mx-auto my-24">
+      <div className=" w-[60%] mx-auto pb-16 text-center spy3">
+      <h2 className="text-3xl  font-bold font-Roboto ">PARIS <span className=" text-[#e04f67]">TOP</span> HOTELS</h2>
+      <p className=" text-xl ">Quisque at tortor a libero posuere laoreet vitae sed arcu. Curabitur consequat.</p>
+      </div>
+      <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {
-        datas && datas.slice(1).map(data=>(
+        datas && datas.slice(1,7).map(data=>(
           <div key={data._id} className=" shadow-md rounded-xl">
           <figure className="overflow-hidden rounded-t-md">
             <img src={data.photoURL1} alt="car!" className="w-full h-50 object-cover rounded-t-md" />
@@ -29,7 +22,7 @@ const datas = useLoaderData();
               <h2 className="flex items-center"><IoMdTime /> {data?.traveltime}</h2>
             </div>
             <h2 className="text-2xl font-Roboto font-medium">Sajek valiie</h2>
-            <h2 className="text-[18px] font-Roboto ">{data?.shortdescription}</h2>
+            <h2 className="text-[18px] font-Roboto ">{data?.shortdescription.slice(0,90)}</h2>
             <div className="flex justify-between items-center">
               <div className="text-[#eee]">
               <h2 className="text-sm font-Roboto ">{data?.Rating}k</h2>
@@ -43,8 +36,7 @@ const datas = useLoaderData();
      
       </div>
     </div>
-   </>
   );
 };
 
-export default AllTourism;
+export default TopPlace;
