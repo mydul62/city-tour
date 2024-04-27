@@ -1,0 +1,29 @@
+.image_galary:hover .offer{
+  display: block;
+  transition:0.4s;
+}
+
+.image_galary {
+  overflow: hidden;
+  position: relative;
+  border-radius: 10px;
+}
+
+.image_galary img {
+  width: 100%;
+  height: auto;
+  transition: transform 0.3s ease-in-out;
+}
+
+.image_galary:hover img {
+  transform: scale(1.1);
+}
+
+.image_galary .absolute {
+  position: absolute;
+  bottom: 0;
+  right: 10px;
+  left: 10px;
+  text-align: center;
+}
+

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../Firebase/FirebaseProvider";
 
 const Login = () => {
-const {signInPass}=useContext(AuthContext)
+const {signInPass,googleSignIn}=useContext(AuthContext)
 
 const handleOnLogin=(e)=>{
   e.preventDefault()
@@ -16,6 +16,15 @@ const handleOnLogin=(e)=>{
     alert("logined")
     }).then(error=>{
     console.log(error.message)})
+}
+
+const handleGoogleSignin = ()=>{
+  googleSignIn()
+  .then(Result=>{
+    alert("logined")
+    }).catch(error=>{
+    console.log(error.message)})
+  
 }
   return (
     <div className=" max-w-7xl mx-auto min-h-[calc(100vh-84px)] flex  justify-center items-center">
@@ -50,7 +59,7 @@ const handleOnLogin=(e)=>{
       <div className=" flex justify-between gap-3">
       <button className=" flex items-center justify-center gap-2 w-full rounded-sm text-white py-1 bg-[#0a3d62]"><FaGithub size={20} />
 <span>Gitgub</span></button>
-      <button className="  flex items-center justify-center gap-2 w-full rounded-sm text-white py-1 bg-[#ff6b6b]"><FaGoogle  size={20}/>
+      <button onClick={handleGoogleSignin} className="  flex items-center justify-center gap-2 w-full rounded-sm text-white py-1 bg-[#ff6b6b]"><FaGoogle  size={20}/>
 <span>Google</span></button>
       </div>
       

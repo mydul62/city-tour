@@ -23,26 +23,34 @@ const Registere = () => {
       setPassError('You must put one uppercase,lowecase and ,im 6 digit')
     return;
     }
-    signUpPass(email, password)
-    setPassError('')
-      .then(result => {
-        // Update user profile
-        updateProfile(auth.currentUser, {
-          displayName: name,
-          photoURL: photoURL
-        }).then((result) => {
-          setUser(result.user);
-        }).catch(error => {
-          console.log("Error updating profile:", error);
-        });
-
-        alert("Registered");
-        console.log(result);
-      })
-      .catch(error => {
-        console.log("Error signing up:", error);
-      });
+   signUpPass(email, password)
+  .then(result => {
+    // Update user profile
+    updateProfile(auth.currentUser, {
+      displayName: name,
+      photoURL: photoURL
+    })
+    .then(() => {
+      // Profile update successful
+      setUser(auth.currentUser);
+      alert("Registered and profile updated successfully!");
+    })
+    .catch(error => {
+      // Handle profile update error
+      console.error("Error updating profile:", error);
+      alert("An error occurred while updating your profile. Please try again later.");
+    });
+    console.log(result);
+  })
+  .catch(error => {
+    console.error("Error signing up:", error);
+    alert("An error occurred while signing up. Please try again later.");
+  });
   };
+  
+  const handleSinupGoogle =()=>{
+    
+  }
 
   return (
     <div className=" max-w-7xl mx-auto min-h-[calc(100vh-84px)] flex  justify-center items-center">
@@ -92,11 +100,11 @@ const Registere = () => {
         <div className=" flex justify-between gap-3">
           <button className=" flex items-center justify-center gap-2 w-full rounded-sm text-white py-1 bg-[#0a3d62]"><FaGithub size={20} />
             <span>Gitgub</span></button>
-          <button className="  flex items-center justify-center gap-2 w-full rounded-sm text-white py-1 bg-[#ff6b6b]"><FaGoogle  size={20}/>
+          <button onClick={handleSinupGoogle} className="  flex items-center justify-center gap-2 w-full rounded-sm text-white py-1 bg-[#ff6b6b]"><FaGoogle  size={20}/>
             <span>Google</span></button>
         </div>
         <div>
-          <Link className=" btn border border-[#ccc] px-3 py-2 rounded-sm  w-full   w-full my-6 bg-[#ff9f43]" to={'/login'}>Login with password</Link>
+          <Link className=" btn border border-[#ccc] px-3 py-2 rounded-sm  w-full   my-6 bg-[#ff9f43]" to={'/login'}>Login with password</Link>
         </div>
       </div>
     </div>
