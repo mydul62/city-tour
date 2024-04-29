@@ -1,66 +1,46 @@
 import { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../Firebase/FirebaseProvider";
+import toast from "react-hot-toast/headless";
 
 const UpdateDetails = () => {
   const { user } = useContext(AuthContext);
   const data = useLoaderData();
-  console.log(data);
-
-  const handleAddProduct = (e) => {
+  const handleUpdateProduct = (e) => {
     e.preventDefault();
     const form = e.target;
-    const photoURL1 = form.photoURL1.value;
-    const photoURL2 = form.photoURL2.value;
-    const photoURL3 = form.photoURL3.value;
-    const photoURL4 = form.photoURL4.value;
-    const Rating = form.Rating.value;
-    const Touristsportname = form.Touristsportname.value;
-    const countryname = form.countryname.value;
-    const location = form.location.value;
-    const shortdescription = form.shortdescription.value;
-    const averagecost = form.averagecost.value;
-    const seasonality = form.seasonality.value;
-    const traveltime = form.traveltime.value;
-    const totalVisitorsPerYear = form.totalVisitorsPerYear.value;
-    const useremail = user.email;
-    const username = user.name;
-    const addInfo = {
-      photoURL1,
-      photoURL2,
-      photoURL3,
-      photoURL4,
-      Rating,
-      Touristsportname,
-      countryname,
-      location,
-      shortdescription,
-      averagecost,
-      seasonality,
-      traveltime,
-      totalVisitorsPerYear,
-      username,
-      useremail,
-    };
-
-    fetch("http://localhost:5000/tourisms", {
-      method: "POST",
+  
+    // Get form data
+    const formData = new FormData(form);
+  
+    // Convert form data to JSON
+    const addInfo = {};
+    formData.forEach((value, key) => {
+      addInfo[key] = value;
+    });
+    addInfo.useremail = user.email;
+    addInfo.username = user.name;
+  
+    fetch(`http://localhost:5000/tourisms/${data._id}`, {
+      method: "PUT", // Change method to PUT
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(addInfo),
     })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.acknowledged) {
-          alert("Added successfully");
-        } else {
-          alert("Failed to add tourist sport. Please try again.");
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error("Failed to update tourist sport.");
         }
+        return res.json();
+      })
+      .then((data) => {
+        alert("Updated successfully");
+       console.log(data);
       })
       .catch((error) => {
         console.error("Error:", error);
-        alert("An error occurred. Please try again later.");
+        toast.error("An error occurred while updating. Please try again later.");
       });
   };
 
@@ -83,7 +63,7 @@ const UpdateDetails = () => {
                 Add Tourist Sport
               </h2>
             </div>
-            <form onSubmit={handleAddProduct} className=" space-y-4">
+            <form onSubmit={handleUpdateProduct} className=" space-y-4">
               <div className=" flex justify-center gap-3">
                 <input
                   defaultValue={data.photoURL1}
@@ -160,7 +140,7 @@ const UpdateDetails = () => {
                 <input
                   type="text"
                   placeholder="Average cost"
-                  defaultValue={data.photoURL1} defaultValue={data.averagecost}
+                  defaultValue={data.averagecost}
                   name="averagecost"
                   className="input input-bordered input-xl w-full "
                 />
