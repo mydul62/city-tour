@@ -99,7 +99,7 @@ const Navbar = () => {
               {navlist}
             </ul>
           </div>
-          <a className="text-2xl font-Homemade text-white font-semibold">City Tour</a>
+          <a className="text-2xl font-Homemade text-white font-semibold">City <span className=" text-[#f0932b]">Tour</span></a>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal text-[14px] px-1">{navlist}</ul>

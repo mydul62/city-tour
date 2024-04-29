@@ -68,7 +68,7 @@ const AddTourism = () => {
    <img className=" w-full h-[600px]" src="https://images.pexels.com/photos/258154/pexels-photo-258154.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" />
    </div>
  
-    <div className=" max-w-7xl mx-auto -mt-80 flex items-center">
+    <div className=" max-w-7xl mx-auto -mt-80 mb-16 flex items-center">
       <div className="space-y-6 w-full md:w-2/3 mx-auto bg-slate-300  rounded-xl ">
         <div className=" bg-green-600 h-10 rounded-b-lg"></div>
         <div className="p-8 pt-0 ">

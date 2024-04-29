@@ -9,11 +9,14 @@ import AddTourism from "../pages/AddTourism";
 import Home from "../pages/Home";
 import ViewDetails from "../components/ViewDetails";
 import Mylist from "../pages/Mylist";
-
+import PrivateRouter from "./PrivateRouter";
+import Errorpage from "../pages/Errorpage";
+import UpdateDetails from "../pages/UpdateDetails";
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
+    errorElement:<Errorpage></Errorpage>,
     children:[
     {
         path:'/',
@@ -35,17 +38,22 @@ export const router = createBrowserRouter([
       },
       {
       path:'/addtourism',
-      element:<AddTourism></AddTourism>
+      element: <PrivateRouter><AddTourism></AddTourism></PrivateRouter> 
       },
       {
         path:'viewdetails/:id',
-        element:<ViewDetails></ViewDetails>,
+        element:<PrivateRouter><ViewDetails></ViewDetails></PrivateRouter> ,
         loader:({params})=>fetch(`http://localhost:5000/tourisms/${params.id}`)
         
       },
       {
       path:'/mylist',
-      element:<Mylist></Mylist>
+      element:<PrivateRouter><Mylist></Mylist></PrivateRouter> 
+      },
+      {
+      path:"/updatedetails/:id",
+      element:<PrivateRouter><UpdateDetails></UpdateDetails></PrivateRouter>,
+      loader:({params})=>fetch(`http://localhost:5000/tourisms/${params.id}`)
       }
     ]
   },

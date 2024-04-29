@@ -52,7 +52,7 @@ const Registere = () => {
   return (
     <div className=" bg-[url('https://images.pexels.com/photos/1629998/pexels-photo-1629998.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')] bg-no-repeat bg-cover bg-left min-h-screen">
     <div className=" max-w-7xl mx-auto min-h-[calc(100vh-84px)] flex   justify-center items-center">
-    <div className=" w-full md:w-2/6 mx-auto shadow-sm ring-1 mt-24  ring-black rounded-xl md:mr-4 bg-[#eaeaea2d] ring-opacity-5 p-6">
+    <div className=" w-full md:w-2/6 mx-auto shadow-sm ring-1 mt-24 border-2 border-[#f0942b4b]  ring-black rounded-xl md:mr-4 bg-[#eaeaea2d] ring-opacity-5 p-6">
         <h2 className=" text-center text-2xl font-semibold py-4">
           Account Register
         </h2>
@@ -61,20 +61,20 @@ const Registere = () => {
             type="text"
             placeholder="Your Name"
             name="name" required
-            className="border border-[#ccc] outline-none shadow-inner  px-3 py-2 rounded-sm  w-full "
+            className="border border-[#ccc] outline-none shadow-inner  px-3 py-2 rounded-xl  w-full "
           />
           <input
             type="email" required
             placeholder="Your Email"
             name="email"
-            className="border border-[#bbb] shadow-inner px-3 py-2  outline-none rounded-sm  w-full "
+            className="border border-[#bbb] shadow-inner px-3 py-2  outline-none rounded-xl   w-full "
           />
          <div>
          <input
             type="password" required
             placeholder="Password"
             name="password"
-            className="border border-[#ccc] px-3 py-2 outline-none shadow-inner  rounded-sm  w-full "
+            className="border border-[#ccc] px-3 py-2 outline-none shadow-inner  rounded-xl   w-full "
           />
           <p>{passError&& passError}</p>
          </div>
@@ -82,10 +82,10 @@ const Registere = () => {
             type="text"
             name="photoURL" required
             placeholder="photoURL"
-            className="border border-[#ccc] px-3 py-2 outline-none shadow-inner  rounded-sm  w-full "
+            className="border border-[#ccc] px-3 py-2 outline-none shadow-inner  rounded-xl   w-full "
           />
           <input  
-            className="btn bg-[#010101] text-white outline-none border shadow-inner  border-[#ccc] px-3 py-2 rounded-sm  w-full "
+            className="btn bg-[#010101] text-white outline-none border shadow-inner  border-[#ccc] px-3 py-2 rounded-xl   w-full "
             type="submit"
             value={"REGISTER"}
           />
