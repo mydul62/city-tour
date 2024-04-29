@@ -54,7 +54,7 @@ const Login = () => {
   return (
     <div className=" bg-[url('https://images.pexels.com/photos/1629998/pexels-photo-1629998.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')] bg-no-repeat bg-cover bg-left min-h-screen">
       <div className=" max-w-7xl w-[90%] mx-auto min-h-[calc(100vh-84px)] flex  justify-center items-center  ">
-        <div className=" w-full md:w-2/6 mx-auto shadow-sm ring-1 ring-black rounded-xl md:mr-4 bg-[#eaeaea2d] ring-opacity-5 p-6 border-2 border-[#f0942b7f]">
+        <div className=" w-full md:w-2/6 mx-auto shadow-sm ring-1 ring-black rounded-xl mt-44 md:mr-4 bg-[#eaeaea2d] ring-opacity-5 p-6 border-2 border-[#f0942b7f]">
           <h2 className=" text-center text-2xl font-semibold py-4">
             Account Login
           </h2>

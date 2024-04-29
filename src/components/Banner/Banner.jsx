@@ -37,19 +37,18 @@ const Banner = () => {
         className="mySwiper h-[100vh]"
       >
         <SwiperSlide className=" relative">
-          <img className=""
-            src="https://images.pexels.com/photos/18330747/pexels-photo-18330747/free-photo-of-party-on-a-boat-moored-to-the-riverbank.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+          <img className=" bg-blend-multiply"
+           src="https://images.pexels.com/photos/258154/pexels-photo-258154.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
             alt=""
           />
+  
           <div className=" max-w-7xl w-[90%] mx-auto absolute inset-0 flex justify-center items-center ">
-           <div>
+           <div className=" md:w-2/3 mx-auto">
            <h2 className=" text-5xl text-white font-Roboto font-bold">
-              Going Inside <br />
-              The Louvre Museum
+           Find Your Next Vacation
             </h2>
-            <p className=" text-xl text-[#f9f9f9] mt-4">
-              Discover hidden wonders on trips curated by Citytours Tours
-              Experts
+            <p className="  text-xl font-bold text-[#f9f9f9] mt-4">
+            Design your perfect vacation by choosing from the best ranked hotels, cruises and destinations.
             </p>
            </div>
           </div>
@@ -61,13 +60,11 @@ const Banner = () => {
           />
            <div className=" max-w-7xl w-[90%] mx-auto absolute inset-0 flex justify-start items-center ">
            <div className=" text-left">
-           <h2 className=" text-5xl text-white font-Roboto font-bold">
-              Going Inside <br />
-              The Louvre Museum
+           <h2 className="  text-5xl text-white font-Roboto font-bold">
+           Find <br /> Your Next Vacation
             </h2>
-            <p className=" text-xl text-[#f9f9f9] mt-4">
-              Discover hidden wonders on trips curated by Citytours Tours
-              Experts
+            <p className=" md:w-1/2 text-xl text-[#f9f9f9] mt-4">
+             Design your perfect vacation by choosing from the best ranked hotels, cruises and destinations.
             </p>
            </div>
           </div>

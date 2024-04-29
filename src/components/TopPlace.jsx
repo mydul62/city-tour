@@ -12,7 +12,7 @@ console.log(datas);
       </div>
       <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 ">
       {
-        datas && datas.map(data=>(
+        datas && datas.slice(0,6).map(data=>(
           <div key={data._id} className=" shadow-md rounded-xl p-4 bg-[#eeeeee45]">
           <figure className="overflow-hidden rounded-t-md">
             <img src={data.photoURL1} alt="car!" className="w-full h-50 rounded-xl  object-cover rounded-t-md" />
@@ -22,8 +22,10 @@ console.log(datas);
               <h2 className="flex items-center gap-1 text-[#101010]"><FaLocationDot /> {data?.location}</h2>
               <h2 className="flex items-center"><IoMdTime /> {data?.traveltime}</h2>
             </div>
-            <h2 className="text-2xl font-Roboto font-medium">Sajek valiie</h2>
-            <h2 className="text-[18px] font-Roboto ">{data?.shortdescription}</h2>
+            <h2 className="text-2xl font-Roboto font-medium">{data.Touristsportname}</h2>
+            <h2 className="text-[18px] font-Roboto">
+        {data?.shortdescription ? `${data.shortdescription.slice(0, 70)}...` : 'No description available.'}
+      </h2>
             <div className="flex justify-between items-center">
               <div className="text-[#eee]">
               <h2 className="text-sm font-Roboto ">{data?.Rating}k</h2>

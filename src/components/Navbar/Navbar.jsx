@@ -69,7 +69,7 @@ const Navbar = () => {
   );
 
   return (
-    <div className={` ${navbar?'bg-black duration-500':'bg-transparent'}`}>
+    <div className={` ${navbar?'bg-[#1A1D26] duration-500':'bg-transparent'}`}>
      <div className={` ${navbar?'hidden':'block'}`}>
     <TopNav></TopNav>
     </div>
@@ -102,7 +102,7 @@ const Navbar = () => {
           <a className="text-2xl font-Homemade text-white font-semibold">City <span className=" text-[#f0932b]">Tour</span></a>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal text-[14px] px-1">{navlist}</ul>
+          <ul className="menu menu-horizontal  text-[18px] font-medium px-1">{navlist}</ul>
         </div>
         <div className="navbar-end flex gap-3">
           <div onClick={handleToggle} className="border-2 rounded-full text-white">
