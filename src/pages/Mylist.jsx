@@ -4,6 +4,7 @@ import { AiFillDelete } from "react-icons/ai";
 import { FaPencilAlt } from "react-icons/fa";
 import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const Mylist = () => {
   const { user } = useContext(AuthContext);
@@ -17,18 +18,36 @@ const Mylist = () => {
   }, [useremail]);
 
   const handleDelete = (id) => {
-    fetch(`http://localhost:5000/tourisms/${id}`, {
-      method: "DELETE",
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        const updatedData = datas.filter((item) => item._id !== id);
-        setData(updatedData);
-        toast.success("Item deleted successfully");
-      })
-      .catch((error) => {
-        console.error("Error deleting item:", error);
-      });
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:5000/tourisms/${id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            const updatedData = datas.filter((item) => item._id !== id);
+            setData(updatedData);
+          })
+          .catch((error) => {
+            console.error("Error deleting item:", error);
+          });
+      
+        Swal.fire({
+          title: "Deleted!",
+          text: "Your file has been deleted.",
+          icon: "success"
+        });
+      }
+    });
+    
   };
 
   return (

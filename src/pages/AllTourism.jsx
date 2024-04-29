@@ -9,7 +9,7 @@ const datas = useLoaderData();
    <div className="">
    <img className=" w-full h-[500px]" src="https://images.pexels.com/photos/258154/pexels-photo-258154.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" />
    </div>
-    <div className=" max-w-7xl mx-auto ">
+    <div className=" max-w-7xl w-[95%] mx-auto ">
      <div className=" py-16">
      <h2 className=" text-center text-3xl">Explore Our All Tourist Point</h2>
      </div>
@@ -29,7 +29,9 @@ const datas = useLoaderData();
               <h2 className="flex items-center"><IoMdTime /> {data?.traveltime}</h2>
             </div>
             <h2 className="text-2xl font-Roboto font-medium">Sajek valiie</h2>
-            <h2 className="text-[18px] font-Roboto ">{data?.shortdescription}</h2>
+            <h2 className="text-[18px] font-Roboto">
+        {data?.shortdescription ? `${data.shortdescription.slice(0, 70)}...` : 'No description available.'}
+      </h2>
             <div className="flex justify-between items-center">
               <div className="text-[#eee]">
               <h2 className="text-sm font-Roboto ">{data?.Rating}k</h2>

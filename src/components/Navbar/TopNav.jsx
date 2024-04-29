@@ -11,7 +11,7 @@ const handleLogOut = () => {
 };
   return (
     <div className=" border-b border-[#72aa8a56] shadow-inner ">
-    <div className=" max-w-7xl mx-auto flex justify-between items-center  text-white font-bold">
+    <div className=" max-w-7xl w-[90%] mx-auto flex justify-between items-center  text-white font-bold">
       <div>
       <h3 className=" text-[11px]">01302104188</h3>
       </div>

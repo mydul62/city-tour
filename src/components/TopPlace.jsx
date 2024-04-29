@@ -6,7 +6,7 @@ const TopPlace = ({datas}) => {
 console.log(datas);
   return (
     <div className=" max-w-7xl mx-auto my-24">
-      <div className=" w-[60%] mx-auto pb-16 text-center spy3">
+      <div className=" w-[90%] space-y-4 md:w-[60%] mx-auto pb-16 text-center spy3">
       <h2 className="text-3xl  font-bold font-Roboto ">PARIS <span className=" text-[#e04f67]">TOP</span> HOTELS</h2>
       <p className=" text-xl ">Quisque at tortor a libero posuere laoreet vitae sed arcu. Curabitur consequat.</p>
       </div>

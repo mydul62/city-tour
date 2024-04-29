@@ -17,7 +17,7 @@ const CustomerReview = () => {
 
   return (
     <>
-    <div className='w-[60%] mx-auto my-16'>
+    <div className=' w-[80%] md:w-[60%] mx-auto my-16'>
     <div className=' flex justify-center '>
     <h2 className=' inline-block border-b-4 border-yellow-500  text-3xl text-center py-6 my-16'>Happy Client</h2>
     </div>

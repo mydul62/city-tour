@@ -5,10 +5,21 @@ import { MdDarkMode } from "react-icons/md";
 import { CiDark } from "react-icons/ci";
 import { IoBagHandleOutline } from "react-icons/io5";
 import TopNav from "./TopNav"
+import { RiMenuLine } from "react-icons/ri";
+import { AiOutlineClose } from "react-icons/ai";
+
 const Navbar = () => {
   const { user } = useContext(AuthContext);
   const [theme, setTheme] = useState(false);
   const [navbar,setNavbar]=useState(false);
+  const [datas, setData] = useState([]);
+  const useremail = user?.email;
+  const [showSidebar, setShowSidebar] = useState(false);
+  useEffect(() => {
+    fetch(`http://localhost:5000/tourisms/email/${useremail}`)
+      .then((res) => res.json())
+      .then((data) => setData(data));
+  }, [useremail]);
   const changeBackground =()=>{
     if(window.scrollY >=80){
     setNavbar(true)
@@ -16,7 +27,9 @@ const Navbar = () => {
       setNavbar(false)
     }
   }
-  
+  const toggleSidebar = () => {
+    setShowSidebar(!showSidebar);
+  };
   window.addEventListener('scroll',changeBackground)
   const handleToggle = () => {
     setTheme(!theme);
@@ -38,22 +51,22 @@ const Navbar = () => {
   const navlist = (
     <>
       <li>
-        <NavLink to={"/"} className="text-white hover:text-gray-300">
+        <NavLink to={"/"} className="text-white ">
           Home
         </NavLink>
       </li>
       <li>
-        <NavLink to={"/alltourism"} className="text-white hover:text-gray-300">
+        <NavLink to={"/alltourism"} className="text-white ">
           AllTourists Spot
         </NavLink>
       </li>
       <li>
-        <NavLink to={"/addtourism"} className="text-white hover:text-gray-300">
+        <NavLink to={"/addtourism"} className="text-white ">
           AddTourists Spot
         </NavLink>
       </li>
       <li>
-        <NavLink to={`/mylist`} className="text-white hover:text-gray-300">
+        <NavLink to={`/mylist`} className="text-white ">
           MyList
         </NavLink>
       </li>
@@ -73,46 +86,38 @@ const Navbar = () => {
      <div className={` ${navbar?'hidden':'block'}`}>
     <TopNav></TopNav>
     </div>
-      <div className={`navbar max-w-7xl mx-auto `}>
-        <div className="navbar-start">
+      <div className={`navbar flex justify-between max-w-7xl mx-auto `}>
+        <div className="navbar-start flex gap-4">
           <div className="dropdown">
-            <div tabIndex={0} role="button" className="btn bg-white text-black  lg:hidden">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M4 6h16M4 12h8m-8 6h16"
-                />
-              </svg>
+            <div onClick={toggleSidebar} tabIndex={0} role="button"  className="  text-white  lg:hidden">
+            { 
+            showSidebar?<AiOutlineClose size={20} />:<RiMenuLine size={20} />
+            }
+            
             </div>
-            <ul
-              tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow text-black  rounded-box w-52"
-            >
-              {navlist}
-            </ul>
           </div>
-          <a className="text-2xl font-Homemade text-white font-semibold">City <span className=" text-[#f0932b]">Tour</span></a>
+          <a  className="text-2xl font-Homemade text-white font-semibold">City <span className=" text-[#f0932b]">Tour</span></a>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal  text-[18px] font-medium px-1">{navlist}</ul>
         </div>
-        <div className="navbar-end flex gap-3">
+        <div className=" flex justify-end  gap-3">
           <div onClick={handleToggle} className="border-2 rounded-full text-white">
             {theme ? <MdDarkMode size={25} /> : <CiDark size={25} />}
           </div>
-          <div className="text-white">
+          <div className="text-white relative mr-16 ">
             <IoBagHandleOutline size={25} />
+            <div className="rounded-full absolute -top-3 -right-3  border h-6 8 w-6 flex items-center justify-center border-red-500 ">
+            {datas.length}
+            </div>
           </div>
         </div>
       </div>
+      <div className={`absolute ${showSidebar ? 'right-0' : ' -right-[1500px]'} ease-in duration-300 min-h-screen z-40 w-full text-center items-center md:hidden flex justify-center bg-[rgb(200,214,229)] opacity-95 font-bold`}>
+  <ul className='flex flex-col justify-center items-center text-center py-6 gap-6'>
+    {navlist}
+  </ul>
+</div>
     </div>
   );
 };
