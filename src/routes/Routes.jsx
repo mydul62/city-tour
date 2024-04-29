@@ -12,6 +12,7 @@ import Mylist from "../pages/Mylist";
 import PrivateRouter from "./PrivateRouter";
 import Errorpage from "../pages/Errorpage";
 import UpdateDetails from "../pages/UpdateDetails";
+import CetegoryCardDetails from "../pages/CetegoryCardDetails";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -54,6 +55,12 @@ export const router = createBrowserRouter([
       path:"/updatedetails/:id",
       element:<PrivateRouter><UpdateDetails></UpdateDetails></PrivateRouter>,
       loader:({params})=>fetch(`http://localhost:5000/tourisms/${params.id}`)
+      },
+      {
+      path:'/categorycarddetails/:countryname',
+      element:<PrivateRouter><CetegoryCardDetails></CetegoryCardDetails></PrivateRouter>,
+      loader:({params})=>fetch(`http://localhost:5000/tourisms/email/${params.countryname}`)
+
       }
     ]
   },

@@ -2,26 +2,25 @@ import { FaLocationDot } from "react-icons/fa6";
 import { IoMdTime } from "react-icons/io";
 import { Link, useLoaderData } from "react-router-dom";
 
-const AllTourism = () => {
-const datas = useLoaderData();
+const CetegoryCardDetails = () => {
+const lodedDatas = useLoaderData()
+
   return (
    <>
-   <div className="">
-   <img className=" w-full h-[500px]" src="https://images.pexels.com/photos/258154/pexels-photo-258154.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" />
-   </div>
-    <div className=" max-w-7xl w-[95%] mx-auto ">
-     <div className=" py-16">
-     <h2 className=" text-center text-3xl">Explore Our All Tourist Point</h2>
-     </div>
-     <div>
-     
-     </div>
-     <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+    <div className="">
+    <img
+      className=" w-full h-[400px]"
+      src="https://images.pexels.com/photos/258154/pexels-photo-258154.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+      alt=""
+    />
+  </div>
+    <div className=" max-w-7xl mx-auto  mt-24">
+       <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 ">
       {
-        datas && datas.slice(1).map(data=>(
-          <div key={data._id} className=" shadow-md rounded-xl">
+        lodedDatas && lodedDatas.slice(0,6).map(data=>(
+          <div key={data._id} className=" shadow-md rounded-xl p-4 bg-[#eeeeee45]">
           <figure className="overflow-hidden rounded-t-md">
-            <img src={data.photoURL1} alt="car!" className="w-full h-50 object-cover rounded-t-md" />
+            <img src={data.photoURL1} alt="car!" className="w-full h-50 rounded-xl  object-cover rounded-t-md" />
           </figure>
           <div className="p-4 space-y-2 ">
             <div className="flex justify-between items-center">
@@ -45,8 +44,9 @@ const datas = useLoaderData();
      
       </div>
     </div>
+   
    </>
   );
 };
 
-export default AllTourism;
+export default CetegoryCardDetails;

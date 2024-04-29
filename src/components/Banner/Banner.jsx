@@ -11,6 +11,7 @@ import "./banner.css";
 
 // import required modules
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
+import { Typewriter } from "react-simple-typewriter"; // Import Typewriter correctly
 
 const Banner = () => {
   const progressCircle = useRef(null);
@@ -45,7 +46,7 @@ const Banner = () => {
           <div className=" max-w-7xl w-[90%] mx-auto absolute inset-0 flex justify-center items-center ">
            <div className=" md:w-2/3 mx-auto">
            <h2 className=" text-5xl text-white font-Roboto font-bold">
-           Find Your Next Vacation
+           Find Your Next  <Typewriter words={['Vacation']} loop={true} cursor={true} typeSpeed={80} /> 
             </h2>
             <p className="  text-xl font-bold text-[#f9f9f9] mt-4">
             Design your perfect vacation by choosing from the best ranked hotels, cruises and destinations.
