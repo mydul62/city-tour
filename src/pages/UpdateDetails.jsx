@@ -22,7 +22,7 @@ const UpdateDetails = () => {
     addInfo.useremail = user.email;
     addInfo.username = user.name;
   
-    fetch(`http://localhost:5000/tourisms/${data._id}`, {
+    fetch(`https://tourism-server-liard.vercel.app/tourisms/${data._id}`, {
       method: "PUT", // Change method to PUT
       headers: {
         "Content-Type": "application/json",
@@ -39,7 +39,7 @@ const UpdateDetails = () => {
         Swal.fire({
           position: "top-center",
           icon: "success",
-          title: "Your Card has been Adeded",
+          title: "Your Card has been Updated",
           showConfirmButton: false,
           timer: 1500
         });

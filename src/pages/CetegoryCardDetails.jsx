@@ -4,6 +4,7 @@ import { Link, useLoaderData, useParams } from "react-router-dom";
 
 const CetegoryCardDetails = () => {
 const lodedDatas = useLoaderData()
+console.log(lodedDatas);
 const {countryname} = useParams()
   return (
    <>
@@ -14,13 +15,13 @@ const {countryname} = useParams()
       alt=""
     />
   </div>
-    <div className=" max-w-7xl mx-auto  mt-24">
+    <div className=" max-w-7xl mx-auto  my-24">
     <div className=" flex justify-center items-center pb-12">
     <h2 className=" text-center font-Homemade text-3xl ">Explore ALL Places Of <span className=" text-orange-400"> {countryname}</span></h2>
     </div>
        <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 ">
       {
-        lodedDatas && lodedDatas.slice(0,6).map(data=>(
+        lodedDatas && lodedDatas?.slice(0,6).map(data=>(
           <div key={data._id} className=" shadow-md rounded-xl p-4 bg-[#eeeeee0d]">
           <figure className="overflow-hidden rounded-t-md">
             <img src={data.photoURL1} alt="car!" className="w-full h-50 rounded-xl  object-cover rounded-t-md" />
@@ -32,7 +33,7 @@ const {countryname} = useParams()
             </div>
             <h2 className="text-2xl font-Roboto font-medium">{data.Touristsportname}</h2>
             <h2 className="text-[18px] font-Roboto">
-        {data?.shortdescription ? `${data.shortdescription.slice(0, 70)}...` : 'No description available.'}
+        {data?.shortdescription ? `${data?.shortdescription.slice(0, 70)}...` : 'No description available.'}
       </h2>
             <div className="flex justify-between items-center">
               <div className="text-[#eee]">

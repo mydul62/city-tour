@@ -4,10 +4,9 @@ import './tourism.css'
 import { Link } from 'react-router-dom';
 const TouristsSpots = () => {
 const [datas,setData]=useState({})
-
 useEffect(() => {
   const loadData = async () => {
-      const response = await fetch('http://localhost:5000/country/countrys');
+      const response = await fetch('https://tourism-server-liard.vercel.app/country/countrys');
       const data = await response.json();
       setData(data);
     } 

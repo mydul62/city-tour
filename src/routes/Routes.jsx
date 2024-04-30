@@ -22,12 +22,12 @@ export const router = createBrowserRouter([
     {
         path:'/',
         element:<Home></Home>,
-        loader:()=>fetch('http://localhost:5000/tourisms')
+        loader:()=>fetch('https://tourism-server-liard.vercel.app/tourisms')
     },
       {
       path:'/alltourism',
       element:<AllTourism></AllTourism>,
-      loader:()=>fetch('http://localhost:5000/tourisms')
+      loader:()=>fetch('https://tourism-server-liard.vercel.app/tourisms')
       },
       {
       path:'/login',
@@ -44,7 +44,7 @@ export const router = createBrowserRouter([
       {
         path:'viewdetails/:id',
         element:<PrivateRouter><ViewDetails></ViewDetails></PrivateRouter> ,
-        loader:({params})=>fetch(`http://localhost:5000/tourisms/${params.id}`)
+        loader:({params})=>fetch(`https://tourism-server-liard.vercel.app/tourisms/${params.id}`)
         
       },
       {
@@ -54,12 +54,12 @@ export const router = createBrowserRouter([
       {
       path:"/updatedetails/:id",
       element:<PrivateRouter><UpdateDetails></UpdateDetails></PrivateRouter>,
-      loader:({params})=>fetch(`http://localhost:5000/tourisms/${params.id}`)
+      loader:({params})=>fetch(`https://tourism-server-liard.vercel.app/tourisms/${params.id}`)
       },
       {
       path:'/categorycarddetails/:countryname',
       element:<PrivateRouter><CetegoryCardDetails></CetegoryCardDetails></PrivateRouter>,
-      loader:({params})=>fetch(`http://localhost:5000/tourisms/email/country/${params.countryname}`)
+      loader:({params})=>fetch(`https://tourism-server-liard.vercel.app/tourisms/email/country/${params.countryname}`)
 
       }
     ]

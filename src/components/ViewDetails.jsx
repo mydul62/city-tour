@@ -13,7 +13,8 @@ const ViewDetails = () => {
   };
   return (
     <>
-      <div className="">
+     <div className=" mb-16">
+     <div className="">
         <img
           className=" w-full h-[350px]"
           src="https://images.pexels.com/photos/258154/pexels-photo-258154.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
@@ -72,6 +73,7 @@ const ViewDetails = () => {
           </div>
         </div>
       </div>
+     </div>
     </>
   );
 };

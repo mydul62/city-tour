@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -12,9 +12,14 @@ import './review.css';
 // import required modules
 import { Autoplay, FreeMode, Navigation, Pagination } from 'swiper/modules';
 const CustomerReview = () => {
+const [datas,setData]=useState([])
   const progressCircle = useRef(null);
   const progressContent = useRef(null);
-
+  useEffect(()=>{
+fetch('https://tourism-server-liard.vercel.app/review')
+.then(res=>res.json())
+.then(data=>setData(data))
+  },[])
   return (
     <>
     <div className=' w-[80%] md:w-[60%] mx-auto my-16'>
@@ -35,14 +40,16 @@ const CustomerReview = () => {
         modules={[Pagination, Navigation]}
         className="mySwiper"
       >
-        <SwiperSlide>
-        <div className="p-6 space-y-6 bg-[#eaeaea] rounded-xl mb-10">
-              
-              <p className="text-sm text-left text-[#020202] font-medium ">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere in omnis autem. Dolorum, dolorem fugiat. Non rerum consequuntur molestias optio quia soluta maiores illo, provident sit animi temporibus? Accusamus, dolores?.</p>
+      {
+      datas && datas.map(data=>(
+        <SwiperSlide key={data._id} className=' '>
+        <div  className="p-6 space-y-6 bg-[#eaeaea] rounded-xl w-full
+        ">
+              <p className="text-sm text-left text-[#020202] font-medium ">{data?.comment}</p>
               <div className="flex justify-between items-center mb-4">
-                <h6 className="text-sm font-medium text-gray-600">02-43-2004</h6>
+                <h6 className="text-sm font-medium text-gray-600">{data?.date}</h6>
                 <div className="flex items-center gap-1">
-                  <h6 className="text-sm font-medium text-primary">4.6</h6>
+                  <h6 className="text-sm font-medium text-primary">{data?.rsting}</h6>
                   <span role="img" aria-label="star" className="text-yellow-500">
                     ⭐
                   </span>
@@ -50,96 +57,15 @@ const CustomerReview = () => {
               </div>
               <div className="flex items-center justify-between mb-4">
                 <div className="w-12 h-12 mr-4 rounded-full overflow-hidden">
-                  <img src="https://t4.ftcdn.net/jpg/01/04/47/13/240_F_104471360_1xohRUSRjfdGxoaRDtLg2z4ztBHkT21K.jpg" alt=''/>
+                  <img src={data?.authorImageUrl} alt=''/>
                 </div>
-                <h5 className="text-lg font-semibold">mahim</h5>
+                <h5 className="text-lg font-semibold">{data?.authorName}</h5>
               </div>
             </div>
         </SwiperSlide>
-        <SwiperSlide>
-        <div className="p-6 space-y-6 bg-[#eaeaea] rounded-xl">
-              
-              <p className="text-sm text-left text-[#020202] font-medium ">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere in omnis autem. Dolorum, dolorem fugiat. Non rerum consequuntur molestias optio quia soluta maiores illo, provident sit animi temporibus? Accusamus, dolores?.</p>
-              <div className="flex justify-between items-center mb-4">
-                <h6 className="text-sm font-medium text-gray-600">02-43-2004</h6>
-                <div className="flex items-center gap-1">
-                  <h6 className="text-sm font-medium text-primary">4.6</h6>
-                  <span role="img" aria-label="star" className="text-yellow-500">
-                    ⭐
-                  </span>
-                </div>
-              </div>
-              <div className="flex items-center justify-between mb-4">
-                <div className="w-12 h-12 mr-4 rounded-full overflow-hidden">
-                  <img src="https://t4.ftcdn.net/jpg/01/04/47/13/240_F_104471360_1xohRUSRjfdGxoaRDtLg2z4ztBHkT21K.jpg" alt=''/>
-                </div>
-                <h5 className="text-lg font-semibold">mahim</h5>
-              </div>
-            </div>
-        </SwiperSlide>
-        <SwiperSlide>
-        <div className="p-6 space-y-6 bg-[#eaeaea] rounded-xl">
-              
-              <p className="text-sm text-left text-[#020202] font-medium ">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere in omnis autem. Dolorum, dolorem fugiat. Non rerum consequuntur molestias optio quia soluta maiores illo, provident sit animi temporibus? Accusamus, dolores?.</p>
-              <div className="flex justify-between items-center mb-4">
-                <h6 className="text-sm font-medium text-gray-600">02-43-2004</h6>
-                <div className="flex items-center gap-1">
-                  <h6 className="text-sm font-medium text-primary">4.6</h6>
-                  <span role="img" aria-label="star" className="text-yellow-500">
-                    ⭐
-                  </span>
-                </div>
-              </div>
-              <div className="flex items-center justify-between mb-4">
-                <div className="w-12 h-12 mr-4 rounded-full overflow-hidden">
-                  <img src="https://t4.ftcdn.net/jpg/01/04/47/13/240_F_104471360_1xohRUSRjfdGxoaRDtLg2z4ztBHkT21K.jpg" alt=''/>
-                </div>
-                <h5 className="text-lg font-semibold">mahim</h5>
-              </div>
-            </div>
-        </SwiperSlide>
-        <SwiperSlide>
-        <div className="p-6 space-y-6 bg-[#eaeaea] rounded-xl">
-              
-              <p className="text-sm text-left text-[#020202] font-medium ">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere in omnis autem. Dolorum, dolorem fugiat. Non rerum consequuntur molestias optio quia soluta maiores illo, provident sit animi temporibus? Accusamus, dolores?.</p>
-              <div className="flex justify-between items-center mb-4">
-                <h6 className="text-sm font-medium text-gray-600">02-43-2004</h6>
-                <div className="flex items-center gap-1">
-                  <h6 className="text-sm font-medium text-primary">4.6</h6>
-                  <span role="img" aria-label="star" className="text-yellow-500">
-                    ⭐
-                  </span>
-                </div>
-              </div>
-              <div className="flex items-center justify-between mb-4">
-                <div className="w-12 h-12 mr-4 rounded-full overflow-hidden">
-                  <img src="https://t4.ftcdn.net/jpg/01/04/47/13/240_F_104471360_1xohRUSRjfdGxoaRDtLg2z4ztBHkT21K.jpg" alt=''/>
-                </div>
-                <h5 className="text-lg font-semibold">mahim</h5>
-              </div>
-            </div>
-        </SwiperSlide>
-        <SwiperSlide>
-        <div className="p-6 space-y-6 bg-[#eaeaea] rounded-xl">
-              
-              <p className="text-sm text-left text-[#020202] font-medium ">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere in omnis autem. Dolorum, dolorem fugiat. Non rerum consequuntur molestias optio quia soluta maiores illo, provident sit animi temporibus? Accusamus, dolores?.</p>
-              <div className="flex justify-between items-center mb-4">
-                <h6 className="text-sm font-medium text-gray-600">02-43-2004</h6>
-                <div className="flex items-center gap-1">
-                  <h6 className="text-sm font-medium text-primary">4.6</h6>
-                  <span role="img" aria-label="star" className="text-yellow-500">
-                    ⭐
-                  </span>
-                </div>
-              </div>
-              <div className="flex items-center justify-between mb-4">
-                <div className="w-12 h-12 mr-4 rounded-full overflow-hidden">
-                  <img src="https://t4.ftcdn.net/jpg/01/04/47/13/240_F_104471360_1xohRUSRjfdGxoaRDtLg2z4ztBHkT21K.jpg" alt=''/>
-                </div>
-                <h5 className="text-lg font-semibold">mahim</h5>
-              </div>
-            </div>
-        </SwiperSlide>
+      ))
+      }
+        
         <div className="autoplay-progress" slot="container-end">
           <svg viewBox="0 0 48 48" ref={progressCircle}>
             <circle cx="24" cy="24" r="20"></circle>

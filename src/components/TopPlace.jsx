@@ -1,9 +1,15 @@
+import { useEffect, useState } from "react";
 import { FaLocationDot } from "react-icons/fa6";
 import { IoMdTime } from "react-icons/io";
 import { Link } from "react-router-dom";
 
-const TopPlace = ({datas}) => {
-console.log(datas);
+const TopPlace = () => {
+const [datas,setData]=useState([]);
+useEffect(()=>{
+  fetch('https://tourism-server-liard.vercel.app/tourisms')
+  .then(res=>res.json())
+  .then(data=>setData(data))
+},[])
   return (
     <div className=" max-w-7xl mx-auto my-24">
       <div className=" w-[90%] space-y-4 md:w-[60%] mx-auto pb-16 text-center spy3">
@@ -12,12 +18,12 @@ console.log(datas);
       </div>
       <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 ">
       {
-        datas && datas.slice(0,8).map(data=>(
+        datas && datas.slice(0,8).map((data,i)=>(
           <div key={data._id} className="shadow-lg rounded-lg overflow-hidden bg-white">
           <figure className="h-60 overflow-hidden">
             <img
               src={data.photoURL1}
-              alt="Tour"
+              alt={`hello${i}`}
               className="w-full h-full object-cover rounded-t-lg"
             />
           </figure>

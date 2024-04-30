@@ -18,7 +18,7 @@ const Navbar = () => {
   const useremail = user?.email;
   const [showSidebar, setShowSidebar] = useState(false);
   useEffect(() => {
-    fetch(`http://localhost:5000/tourisms/email/${useremail}`)
+    fetch(`https://tourism-server-liard.vercel.app/tourisms/email/${useremail}`)
       .then((res) => res.json())
       .then((data) => setData(data));
   }, [useremail]);

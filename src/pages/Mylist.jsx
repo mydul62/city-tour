@@ -13,7 +13,7 @@ const Mylist = () => {
   const useremail = user?.email;
 
   useEffect(() => {
-    fetch(`http://localhost:5000/tourisms/email/${useremail}`)
+    fetch(`https://tourism-server-liard.vercel.app/tourisms/email/${useremail}`)
       .then((res) => res.json())
       .then((data) => setData(data));
   }, [useremail]);
@@ -29,7 +29,7 @@ const Mylist = () => {
       confirmButtonText: "Yes, delete it!"
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/tourisms/${id}`, {
+        fetch(`https://tourism-server-liard.vercel.app/tourisms/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

@@ -37,7 +37,7 @@ const AddTourism = () => {
       useremail,
     };
 
-    fetch('http://localhost:5000/tourisms', {
+    fetch('https://tourism-server-liard.vercel.app/tourisms', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
