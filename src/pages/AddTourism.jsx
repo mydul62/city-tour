@@ -9,9 +9,6 @@ const AddTourism = () => {
     e.preventDefault();
     const form = e.target;
     const photoURL1 = form.photoURL1.value;
-    const photoURL2 = form.photoURL2.value;
-    const photoURL3 = form.photoURL3.value;
-    const photoURL4 = form.photoURL4.value;
     const Rating = form.Rating.value;
     const Touristsportname = form.Touristsportname.value;
     const countryname = form.countryname.value;
@@ -25,9 +22,6 @@ const AddTourism = () => {
     const username = user.name;
     const addInfo = {
       photoURL1,
-      photoURL2,
-      photoURL3,
-      photoURL4,
       Rating,
       Touristsportname,
       countryname,
@@ -83,26 +77,6 @@ const AddTourism = () => {
                 type="text"
                 placeholder="photoURL1"
                 name="photoURL1"
-                className="input input-bordered input-xl w-full "
-              />
-                <input
-                type="text"
-                placeholder="photoURL2"
-                name="photoURL2"
-                className="input input-bordered input-xl w-full "
-              />
-            </div>
-            <div className=" flex justify-center gap-3">
-            <input
-                type="text"
-                placeholder="photoURL3"
-                name="photoURL3"
-                className="input input-bordered input-xl w-full "
-              />
-               <input
-                type="text"
-                placeholder="photoURL4"
-                name="photoURL4"
                 className="input input-bordered input-xl w-full "
               />
             </div>

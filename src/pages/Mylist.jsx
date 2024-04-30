@@ -91,10 +91,14 @@ const Mylist = () => {
                   <tr key={data._id}>
                     <td className="px-6 py-4 whitespace-nowrap">{index}</td>
                     <td className="px-6 py-4 whitespace-nowrap">
-                      {data.Touristsportname}
+                    {data?.Touristsportname
+                ? `${data.Touristsportname.slice(0, 30)}...`
+                : "No Title available."}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
-                      {data.shortdescription}
+                    {data?.shortdescription
+                ? `${data.shortdescription.slice(0, 50)}...`
+                : "No description available."}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
                       <Link

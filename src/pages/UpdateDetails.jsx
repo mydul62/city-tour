@@ -72,30 +72,8 @@ const UpdateDetails = () => {
                   name="photoURL1"
                   className="input input-bordered input-xl w-full "
                 />
-                <input
-                  type="text"
-                  defaultValue={data.photoURL2}
-                  placeholder="photoURL2"
-                  name="photoURL2"
-                  className="input input-bordered input-xl w-full "
-                />
               </div>
-              <div className=" flex justify-center gap-3">
-                <input
-                  type="text"
-                  defaultValue={data.photoURL3}
-                  placeholder="photoURL3"
-                  name="photoURL3"
-                  className="input input-bordered input-xl w-full "
-                />
-                <input
-                  type="text"
-                  placeholder="photoURL4"
-                  defaultValue={data.photoURL4}
-                  name="photoURL4"
-                  className="input input-bordered input-xl w-full "
-                />
-              </div>
+             
               <div className=" flex justify-center gap-3">
                 <input
                   type="text"

@@ -59,7 +59,7 @@ export const router = createBrowserRouter([
       {
       path:'/categorycarddetails/:countryname',
       element:<PrivateRouter><CetegoryCardDetails></CetegoryCardDetails></PrivateRouter>,
-      loader:({params})=>fetch(`http://localhost:5000/tourisms/email/${params.countryname}`)
+      loader:({params})=>fetch(`http://localhost:5000/tourisms/email/country/${params.countryname}`)
 
       }
     ]

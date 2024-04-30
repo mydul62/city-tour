@@ -10,27 +10,44 @@ console.log(datas);
       <h2 className="text-3xl  font-bold font-Roboto ">PARIS <span className=" text-[#e04f67]">TOP</span> HOTELS</h2>
       <p className=" text-xl ">Quisque at tortor a libero posuere laoreet vitae sed arcu. Curabitur consequat.</p>
       </div>
-      <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 ">
+      <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 ">
       {
-        datas && datas.slice(0,6).map(data=>(
-          <div key={data._id} className=" shadow-md rounded-xl p-4 bg-[#eeeeee45]">
-          <figure className="overflow-hidden rounded-t-md">
-            <img src={data.photoURL1} alt="car!" className="w-full h-50 rounded-xl  object-cover rounded-t-md" />
+        datas && datas.slice(0,8).map(data=>(
+          <div key={data._id} className="shadow-lg rounded-lg overflow-hidden bg-white">
+          <figure className="h-60 overflow-hidden">
+            <img
+              src={data.photoURL1}
+              alt="Tour"
+              className="w-full h-full object-cover rounded-t-lg"
+            />
           </figure>
-          <div className="p-4 space-y-2 ">
-            <div className="flex justify-between items-center">
-              <h2 className="flex items-center gap-1 text-[#101010]"><FaLocationDot /> {data?.location}</h2>
-              <h2 className="flex items-center"><IoMdTime /> {data?.traveltime}</h2>
+          <div className="p-4">
+            <div className="flex justify-between items-center mb-2">
+              <h2 className="flex items-center gap-1 text-[#101010] text-base">
+                <FaLocationDot className="text-[#e04f67]" /> {data?.location}
+              </h2>
+              <h2 className="flex items-center text-base">
+                <IoMdTime className="text-[#e04f67]" /> {data?.traveltime}
+              </h2>
             </div>
-            <h2 className="text-2xl font-Roboto font-medium">{data.Touristsportname}</h2>
-            <h2 className="text-[18px] font-Roboto">
-        {data?.shortdescription ? `${data.shortdescription.slice(0, 70)}...` : 'No description available.'}
-      </h2>
+            <h2 className="text-xl font-bold text-gray-900 mb-2">
+              {data.Touristsportname}
+            </h2>
+            <p className="text-sm text-gray-600 mb-4">
+              {data?.shortdescription
+                ? `${data.shortdescription.slice(0, 70)}...`
+                : "No description available."}
+            </p>
             <div className="flex justify-between items-center">
-              <div className="text-[#eee]">
-              <h2 className="text-sm font-Roboto ">{data?.Rating}k</h2>
+              <div className="text-sm text-gray-700">
+                <h2 className="text-sm font-bold">{data?.Rating}k</h2>
               </div>
-              <Link to={`/viewdetails/${data?._id}`} className="btn btn-sm bg-[#4CAF50] hover:bg-[#43A047] text-white">View details</Link>
+              <Link
+                to={`/viewdetails/${data?._id}`}
+                className="btn bg-[#4CAF50] hover:bg-[#43A047] text-white text-sm font-bold py-2 px-4 rounded-md"
+              >
+                View Details
+              </Link>
             </div>
           </div>
         </div>

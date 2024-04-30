@@ -42,7 +42,7 @@ const Footer = () => {
     <div className=" bg-base-200 ">
       <footer className="footer flex flex-wrap  md:justify-between  max-w-7xl mx-auto p-10 text-base-content">
         <div className=" space-y-3">
-        <a className="text-2xl border-b-2 border-red-300 pb-2 font-Homemade text-black font-semibold">City <span className=" text-[#f0932b]">Tour</span></a>
+        <a className="text-2xl border-b-2 border-red-300 pb-2 font-Homemade font-semibold">City <span className=" text-[#f0932b]">Tour</span></a>
         <div className="join">
           <input
             className="input input-bordered join-item"
@@ -68,7 +68,7 @@ const Footer = () => {
         </nav>
         <nav>
           <h6 className="footer-title">Menu</h6>
-          <ul className=" space-y-4 *:text-[#010101]">
+          <ul className=" space-y-4 ">
           {navlist}
           </ul>
         </nav>
