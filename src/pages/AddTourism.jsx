@@ -1,6 +1,8 @@
 import { useContext} from "react";
 import { AuthContext } from "../Firebase/FirebaseProvider";
 import Navbar from "../components/Navbar/Navbar";
+import Swal from "sweetalert2";
+import toast from "react-hot-toast";
 
 const AddTourism = () => {
   const { user } = useContext(AuthContext);
@@ -45,14 +47,20 @@ const AddTourism = () => {
     .then(res => res.json())
     .then(data => {
       if (data.acknowledged) {
-        alert('Added successfully');
+        Swal.fire({
+          position: "top-center",
+          icon: "success",
+          title: "Your Card has been Adeded",
+          showConfirmButton: false,
+          timer: 1500
+        });
       } else {
-        alert('Failed to add coffee. Please try again.');
+        toast.error('Failed to add coffee. Please try again.');
       }
     })
     .catch(error => {
       console.error('Error:', error);
-      alert('An error occurred. Please try again later.');
+      toast.error('An error occurred. Please try again later.');
     });
   };
 

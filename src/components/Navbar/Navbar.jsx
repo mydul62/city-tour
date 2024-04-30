@@ -7,6 +7,8 @@ import { IoBagHandleOutline } from "react-icons/io5";
 import TopNav from "./TopNav"
 import { RiMenuLine } from "react-icons/ri";
 import { AiOutlineClose } from "react-icons/ai";
+import { Tooltip } from 'react-tooltip'
+
 
 const Navbar = () => {
   const { user } = useContext(AuthContext);

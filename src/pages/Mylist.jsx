@@ -5,6 +5,7 @@ import { FaPencilAlt } from "react-icons/fa";
 import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import Wave from "react-wavify";
 
 const Mylist = () => {
   const { user } = useContext(AuthContext);
@@ -52,14 +53,13 @@ const Mylist = () => {
 
   return (
     <>
-      <div className="  md:min-h-80">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-          <path
-            fill="#0099ff"
-            fillOpacity="1"
-            d="M0,160L60,160C120,160,240,160,360,170.7C480,181,600,203,720,213.3C840,224,960,224,1080,218.7C1200,213,1320,203,1380,197.3L1440,192L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z"
-          ></path>
-        </svg>
+      <div className=" ">
+      <div className=" min-h-40 bg-[#0099ff] md:hidden flex">
+      
+      </div>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+  <path fill="#0099ff" fill-opacity="1" d="M0,224L80,229.3C160,235,320,245,480,250.7C640,256,800,256,960,245.3C1120,235,1280,213,1360,202.7L1440,192L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z"></path>
+</svg>
       </div>
 
       <div className="max-w-7xl mx-auto overflow-x-hidden">

@@ -3,7 +3,8 @@ import { useContext } from "react";
 import { FaArrowRightToBracket } from "react-icons/fa6";
 import { AuthContext } from "../../Firebase/FirebaseProvider";
 import { Link } from "react-router-dom";
-
+import { Tooltip } from 'react-tooltip'
+import 'react-tooltip/dist/react-tooltip.css'
 const TopNav = () => {
 const {user,LogOut}=useContext(AuthContext);
 const handleLogOut = () => {
@@ -23,10 +24,11 @@ const handleLogOut = () => {
             className="btn btn-ghost btn-circle avatar"
           >
             <div className="w-6 rounded-full">
-              <img
+            
+             <a data-tooltip-id="my-tooltip" data-tooltip-content="Hello to you too!">  <img
                 alt="user"
                 src={user.photoURL}
-              />
+              /></a>
             </div>
           </div> :<div
               tabIndex={0}

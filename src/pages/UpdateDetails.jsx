@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../Firebase/FirebaseProvider";
 import toast from "react-hot-toast/headless";
+import Swal from "sweetalert2";
 
 const UpdateDetails = () => {
   const { user } = useContext(AuthContext);
@@ -35,7 +36,13 @@ const UpdateDetails = () => {
         return res.json();
       })
       .then((data) => {
-        alert("Updated successfully");
+        Swal.fire({
+          position: "top-center",
+          icon: "success",
+          title: "Your Card has been Adeded",
+          showConfirmButton: false,
+          timer: 1500
+        });
        console.log(data);
       })
       .catch((error) => {
